@@ -12,13 +12,13 @@ RUN gem install --no-format-executable --no-document rails -v '~> 6'
 USER rails
 WORKDIR /home/rails
 
-RUN rails new thingiverse;
+# RUN rails new thingiverse;
 
-WORKDIR /home/rails/thingiverse
-RUN rails g scaffold thing name:string amount:integer
-RUN echo 'gem "influxdb-rails", :git => "https://github.com/influxdata/influxdb-rails/", :branch => "master"' >> Gemfile
-RUN bundle install; rails webpacker:install; rake db:migrate
-RUN sed -i '2i \  root to: "things#index"' config/routes.rb
-RUN bundle exec rails generate influxdb
-RUN sed -i '2i \  config.client.hosts = "influx"' config/initializers/influxdb_rails.rb
-CMD bundle exec rails server -b 0.0.0.0 -p 4000
+# WORKDIR /home/rails/thingiverse
+# RUN rails g scaffold thing name:string amount:integer
+# RUN echo 'gem "influxdb-rails", :git => "https://github.com/influxdata/influxdb-rails/", :branch => "master"' >> Gemfile
+# RUN bundle install; rails webpacker:install; rake db:migrate
+#RUN sed -i '2i \  root to: "things#index"' config/routes.rb
+# RUN bundle exec rails generate influxdb
+# RUN sed -i '2i \  config.client.hosts = "influx"' config/initializers/influxdb_rails.rb
+# CMD bundle exec rails server -b 0.0.0.0 -p 4000

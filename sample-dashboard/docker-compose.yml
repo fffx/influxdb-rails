@@ -15,7 +15,7 @@ services:
   grafana:
     image: grafana/grafana:7.4.5
     ports:
-      - 3000:3000
+      - 4000:3000
     depends_on:
       - influx
     volumes:
@@ -30,10 +30,10 @@ services:
       - ./provisioning/slowlog-requests.json:/var/lib/grafana/dashboards/slowlog-requests.json:ro
       - ./provisioning/slowlog-sql.json:/var/lib/grafana/dashboards/slowlog-sql.json:ro
       - grafanadata:/var/lib/grafana
-  rails:
-    image: hennevogel/influxdb-rails-sample
-    ports:
-      - 4000:4000
+  # rails:
+  #   image: hennevogel/influxdb-rails-sample
+  #   ports:
+  #     - 4000:4000
 volumes:
   influxdata:
   grafanadata:
