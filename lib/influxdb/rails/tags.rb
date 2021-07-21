@@ -18,7 +18,7 @@ module InfluxDB
       attr_reader :additional_tags, :tags, :config
 
       def expanded_tags
-        config.tags_middleware.call(tags.merge(default_tags))
+        config.tags_middleware.call(default_tags.merge(tags))
       end
 
       def default_tags
